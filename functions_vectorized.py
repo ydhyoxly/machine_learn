@@ -36,4 +36,43 @@ print((x1, x2))
 
 # 6 задача
 
+import numpy as np
+
+from PIL import Image
+import matplotlib.pyplot as plt
+
+img = Image.open("photo_2025-09-17 18.53.08.png")
+
+img_arr = np.asarray(img)
+
+
+
+def vector_summ(image, weights):
+    
+    return np.tensordot(image, weights, axes=([2], [0]))
+
+
+
+
+
+gray_weights = np.array([0.299, 0.587, 0.114])
+
+
+plt.figure(figsize = (15, 10))
+
+
+plt.subplot(1, 3, 1)
+plt.imshow(img)
+plt.title('Изначальное изображение')
+plt.axis('off')
+
+
+
+plt.subplot(1, 3, 3)
+gray_image_2 = vector_summ(synthetic_image, gray_weights)
+plt.imshow(gray_image_2, cmap='gray')
+plt.title('Векторизованное изображение')
+plt.axis('off')
+
+
 
