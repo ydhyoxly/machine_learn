@@ -58,6 +58,7 @@ import matplotlib.pyplot as plt
 img = Image.open("photo_2025-09-17 18.53.08.png")
 
 img_arr = np.asarray(img)
+img_arr_1 = img_arr.tolist()
 
 
 def summ(image, weights):
@@ -75,9 +76,6 @@ def summ(image, weights):
 
     return result
 
-
-
-
 gray_weights = np.array([0.299, 0.587, 0.114])
 gray_weights_1 = gray_weights.tolist()
 
@@ -92,10 +90,12 @@ plt.axis('off')
 
 
 plt.subplot(1, 3, 2)
-gray_image_1 = summ(synthetic_image_1, gray_weights_1)
-plt.imshow(gray_image_1 , cmap='gray')
+gray_img_1 = summ(img_arr_1, gray_weights_1)
+plt.imshow(gray_img_1 , cmap='gray')
 plt.title('Невекторизованное изображение')
 plt.axis('off')
+
+
 
 
 
