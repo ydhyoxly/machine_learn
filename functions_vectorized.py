@@ -27,6 +27,46 @@ print(x[1:][mask].max())
 
 # 4 задача
 
+import numpy as np
+from scipy.spatial import distance
+import time
+
+
+X = np.random.rand(25, 3)
+Y = np.random.rand(50, 3)
+
+
+
+def vector_evc_dist(X, Y):
+   
+    X_2 = np.sum(X ** 2, axis=1, keepdims=True)
+    Y_2 = np.sum(Y ** 2, axis=1)
+    XY = np.dot(X, Y.T)
+    return np.sqrt(X_2 - 2 * XY + Y_2)
+
+
+
+print('Сравнение co scipy:')
+
+
+start = time.time()
+result = vector_evc_dist(X, Y)
+end = time.time() - start
+
+
+scipy_start = time.time()
+scipy_result = distance.cdist(X, Y, 'euclidean')
+scipy_end = time.time() - scipy_start
+
+
+print('Векторная реализация: ' + str(end) + ' секунд')
+print('Scipy cdist: ' + str(scipy_end) + ' секунд')
+dif = end/scipy_end
+
+print('Scipy быстрее векторной реализации в ' + str(dif) + 'раз')
+print(result)
+print(scipy_result)
+
 # 5 задача
 
 import numpy as np
