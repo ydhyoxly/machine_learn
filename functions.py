@@ -39,8 +39,8 @@ from math import sqrt
 
 
 
-X = np.random.rand(100, 10)
-Y = np.random.rand(200, 10)
+X = np.random.rand(100, 3)
+Y = np.random.rand(200, 3)
 X_1 = X.tolist()
 Y_1 = Y.tolist()
 
