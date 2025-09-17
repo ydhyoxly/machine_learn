@@ -32,6 +32,31 @@ print(maxx)
 
 # задача 4
 
+import numpy as np
+import scipy.spatial.distance as dist
+import time
+from math import sqrt
+
+
+
+X = np.random.rand(100, 10)
+Y = np.random.rand(200, 10)
+X_1 = X.tolist()
+Y_1 = Y.tolist()
+
+def evc_dist(X, Y):
+    
+    distances = [[0 for i in range(len(Y))] for j in range(len(X))]
+    for i in range(len(X)):
+        for j in range(len(Y)):
+            for e in range(len(X[0])):
+                
+                 distances[i][j] += (X[i][e] - Y[i][e])**2
+            distances[i][j] = round(sqrt(distances[i][j]), 8)
+    return distances
+
+print(evc_dist(X_1, Y_1))
+
 
 # задача 5
 
@@ -55,7 +80,7 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-img = Image.open("photo_2025-09-17 18.53.08.png")
+img = Image.open("картинка")
 
 img_arr = np.asarray(img)
 img_arr_1 = img_arr.tolist()
