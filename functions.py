@@ -49,3 +49,56 @@ for i in dict.keys():
 print((x1, x2))
 
 # задача 6
+
+import numpy as np
+
+from PIL import Image
+import matplotlib.pyplot as plt
+
+img = Image.open("photo_2025-09-17 18.53.08.png")
+
+img_arr = np.asarray(img)
+
+
+def summ(image, weights):
+
+    result = [[0 for i in range(len(image[0]))] for j in range(len(image))]
+    
+    
+    for i in range(len(image)):
+        for j in range(len(image[0])):
+            for e in range(len(image[0][0])):
+                
+                result[i][j] += (weights[e]*image[i][j][e])
+            result[i][j] = round(result[i][j], 1)
+        
+
+    return result
+
+
+
+
+gray_weights = np.array([0.299, 0.587, 0.114])
+gray_weights_1 = gray_weights.tolist()
+
+
+plt.figure(figsize = (15, 10))
+
+
+plt.subplot(1, 3, 1)
+plt.imshow(img)
+plt.title('Изначальное изображение')
+plt.axis('off')
+
+
+plt.subplot(1, 3, 2)
+gray_image_1 = summ(synthetic_image_1, gray_weights_1)
+plt.imshow(gray_image_1 , cmap='gray')
+plt.title('Невекторизованное изображение')
+plt.axis('off')
+
+
+
+
+
+
