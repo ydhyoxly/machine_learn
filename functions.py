@@ -117,7 +117,7 @@ plt.axis('off')
 plt.subplot(1, 3, 2)
 gray_img_1 = summ(img_arr_1, gray_weights_1)
 plt.imshow(gray_img_1 , cmap='gray')
-plt.title('Невекторизованное изображение')
+plt.title('Серое невекторизованное изображение')
 plt.axis('off')
 
 
