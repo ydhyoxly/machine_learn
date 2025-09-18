@@ -4,7 +4,7 @@ import numpy as np
 X = np.array([[1, 0, 1], [2, 0, 2], [3, 0, 3], [4, 4, 4]])
 
 a = np.diag(X)
-a = a[a!=0]
+a = a[a != 0]
 k = np.prod(a)
 print(k)
 
@@ -107,7 +107,7 @@ plt.axis('off')
 plt.subplot(1, 3, 3)
 gray_img_2 = vector_summ(img_arr, gray_weights)
 plt.imshow(gray_img_2, cmap='gray')
-plt.title('Векторизованное изображение')
+plt.title('Серое векторизованное изображение')
 plt.axis('off')
 
 
