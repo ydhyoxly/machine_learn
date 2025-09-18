@@ -72,6 +72,28 @@ plt.close()
 
 # 4 задача
 
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as p
+fig = plt.figure()
+data_size = np.array([75, 1200, 14700, 120000, 367500, 1306800, 3630000, 15870000])
+time_non_vectorized = np.array([550, 1330, 5300, 11320, 18100, 24500, 40500, 68300])
+time_vectorized = np.array([80, 150, 230, 270, 310, 400, 460, 570])
+ax2 = fig.add_subplot(111)
+
+
+ax2.plot(data_size, time_non_vectorized, label=u"Невекторизованная")
+ax2.plot(data_size, time_vectorized, label=u"Векторизованная")
+ax2.set_title(u"4 задача")
+ax2.set_xlabel(u"Длина массива")
+ax2.set_ylabel(u"Время (мкс)")
+ax2.grid()
+ax2.legend()
+
+plt.show()
+plt.close()
+
 # 5 задача
 
 %matplotlib inline
@@ -103,9 +125,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as p
 fig = plt.figure()
-data_size = np.array([75, 1200, 14700, 120000, 367500, 1306800, 3630000, 15870000])
-time_non_vectorized = np.array([550, 1330, 5300, 11320, 18100, 24500, 40500, 68300])
-time_vectorized = np.array([80, 150, 230, 270, 310, 400, 460, 570])
+data_size = np.array([80, 260, 640, 1080, 1760, 2600, 3320, 4360])
+time_non_vectorized = np.array([2020, 13820, 45200, 102700, 230000, 483900, 875000, 1360000])
+time_vectorized = np.array([440, 1100, 1530, 1890, 2400, 7980, 24700, 34900])
 ax2 = fig.add_subplot(111)
 
 
